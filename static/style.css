@@ -1,0 +1,254 @@
+html, body {
+    font-family: 'Georgia';
+    margin: 0;
+    padding: 0;
+    font: weight 5px;
+}
+
+.container {
+    position: relative;
+    min-height: 500px;
+    width: fit-content;
+    background-color: #D1D5DB;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+hr{
+    color: #000000;
+    width: 1px;
+}
+.container .nav {
+    display: flex;
+    align-items: flex-start; /* or align-items: flex-end; */
+    gap: 2px;
+}
+.nav a {
+    margin-left: 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #000000;
+    position: sticky;
+    top: 0;
+}
+
+.bg-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/static/rectorat_ub21.png");
+    background-size: cover;
+    background-position: center;
+}
+/*home.html*/
+/*messages area*/
+.message-container {
+    position: absolute;
+    display:flex;
+    overflow-y: auto;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+          border-radius: 20px;
+          padding: 8px 16px;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    top: 30px;
+    padding: 30px;
+    right: 100px;
+    left: 100px;
+    bottom: 150px;
+}
+.bot_message{
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+.user_message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: flex-end; /* Align user message to the right */
+    gap: 5px;
+}
+.message-container .bot_message .message typing-effect{
+    color: #000000;
+    font-size: 20px;
+    align-self: center;
+    height: fit-content;
+}
+.message-container .bot_message .message.typing-effect,
+#message-content {
+    color: #000000;
+    font-size: 20px;
+    display: inline-block;
+        max-width: fit-content; /* Adjust the width as needed */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+}
+.message-container .bot_message .message {
+    color: #000000;
+    font-size: 20px;
+    align-self: center;
+}
+.message-container .user_message .message {
+    color: #378CE7;
+    font-size: 20px;
+    align-self: center;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 5s steps(50), blink-caret 0.5s step-end infinite;
+}
+#message-content.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: break-word;
+    animation: typing 5s steps(50), blink-caret 0.5s step-end infinite;
+}
+.message-container .bot_message .message-image {
+    height: 50px; /* Set the height of the image to 100% */
+    margin-right: 5px; /* Adjust margin as needed */
+    width: auto;
+  }
+  .message-container .user_message .message-image {
+    height: 40px; /* Set the height of the image to 100% */
+    margin-right: 5px;
+    margin-left: 5px; /* Adjust margin as needed */
+    width: auto;
+  }  
+/*buttons*/
+.button-container {
+    position: absolute;
+    display: flex;
+    bottom: 30px; /* Adjust the distance from the bottom as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+    gap: 30px;
+}
+
+.button-container .updateBtn {
+    width: 800px;
+    height: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+      border: 1px solid #000000;
+          border-radius: 20px;
+          padding: 8px 16px;
+          background-color: #ffffff;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    color: #000000;  
+    font-size: large;  
+  }
+  .button-container .name-input {
+    width: 800px;
+    height: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+      border: 1px solid #000000;
+          border-radius: 20px;
+          padding: 8px 16px;
+          background-color: #ffffff;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    color: #000000;  
+  }
+  .button-container .name-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: larger;  
+}
+.button-container .characteristics-input {
+    width: 800px;
+    height: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+      border: 1px solid #000000;
+          border-radius: 20px;
+          padding: 8px 16px;
+          background-color: #ffffff;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    color: #000000;  
+  }
+  .button-container .characteristics-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: larger;  
+}
+#send{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+      border: 1px solid #000000;
+          border-radius: 20px;
+          padding: 8px 16px;
+          background-color: #D1D5DB;
+    text-align: center;
+    color: #000000;  
+    font-size: large;  
+    margin-bottom: 10px;
+}
+#empty{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+      border: 1px solid #000000;
+          border-radius: 20px;
+          padding: 8px 16px;
+    background-color: #D1D5DB;  
+    text-align: center;
+    color: #000000;  
+    font-size: large;  
+    margin-bottom: 10px;
+}

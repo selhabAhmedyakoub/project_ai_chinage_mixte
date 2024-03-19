@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+
+{% block title %}
+search_by_name_failed
+{% endblock %}
+
+{% block main %}
+<div class="bg-container">
+    <img id="bg" src="/static/rectorat_ub21.png" alt="background"> 
+    <form action="/byname2" method="post" >
+        <div class="message-container">
+            <div class="bot_message">
+                <img src="/static/logo.png" alt="Logo" class="message-image">
+                <div class="message">
+            Welcome to our student search feature! Here, you can easily find a student in the university by choosing one of the searching methods:
+                </div>
+            </div>    
+            <div class="user_message">
+                <div class="message">
+                    {% if data_array_length == 5 and name and department and major and group_id and number %}
+                    name = {{ name }}|
+                    Departement = {{ department }}|
+                    Major = {{ major }}|
+                    Group = {{ group_id }}|
+                    Number = {{ number }}
+                {% else %}
+                    {% if data_array_length == 4 and name and department and major %}
+                        name = {{ name }}|
+                        Departement = {{ department }}|
+                        Major = {{ major }}|
+                        Group = {{ group_id }}
+                    {% elif data_array_length == 3 and name and department and major %}
+                        name = {{ name }}|
+                        Departement = {{ department }}|
+                        Major = {{ major }}
+                    {% elif data_array_length == 2 and name and department %}
+                        name = {{ name }}| 
+                        Departement = {{ department }}
+                    {% elif data_array_length == 1 and name and department and major and group_id and number and image %}
+                        name = {{ name }}|    
+                    {% endif %}
+                {% endif %}
+                </div>
+                <img src="/static/avatar.png" alt="Logo" class="message-image">
+            </div>  
+            <div class="bot_message">
+                <img src="/static/logo.png" alt="Logo" class="message-image">
+                <div class="message typing-effect">
+                    Unfortunately, this student is not enrolled in our university. 
+                </div>
+            </div>  
+        </div>
+        <div id="empty">
+            <a href="/byname2"><img src="/static/empty.png" alt="send"></a>
+        </div>
+        <div class="button-container">
+            <div class="name-input">
+                <input autocomplete="off" autofocus class="form-control" name="input" placeholder="Student Name, department, major, group_id, number" type="text">
+            </div>
+            <a href="/byname2"><i class="fa-solid fa-arrow-right"></i></a>         
+        </div>
+        <div id="send">
+            <a href="/byname2"><img src="/static/arrow.png" alt="send"></a>
+        </div>
+    </form>    
+</div>
+{% endblock %}

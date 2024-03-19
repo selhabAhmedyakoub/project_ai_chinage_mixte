@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block title %}
+    search_by_name
+{% endblock %}
+
+{% block main %}
+<div class="bg-container">
+    <img id="bg" src="/static/rectorat_ub21.png" alt="background"> 
+    <form action="/byname1" method="post" >
+        <div class="message-container">
+            <div class="bot_message">
+                <img src="/static/logo.png" alt="Logo" class="message-image">
+                <div class="message">
+            Welcome to our student search feature! Please use a comma to separate info!
+                </div>
+            </div>    
+        </div>
+        <div id="empty">
+            <a href="/byname2"><img src="/static/empty.png" alt="send"></a>
+        </div>
+        <div class="button-container">
+            <div class="name-input">
+                <input autocomplete="off" autofocus class="form-control" name="input" placeholder="Student Name, department, major, group_id, number" type="text">
+            </div>
+            <a href="/byname2"><i class="fa-solid fa-arrow-right"></i></a>         
+        </div>
+        <div id="send">
+            <a href="/byname2"><img src="/static/arrow.png" alt="send"></a>
+        </div>
+    </form>    
+</div>
+{% endblock %}

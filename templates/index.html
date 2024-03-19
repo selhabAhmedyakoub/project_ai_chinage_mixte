@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="/static/favicon.ico" rel="icon">
+    <!-- CSS file -->
+    <link href="/static/style.css" rel="stylesheet">
+    <!-- JavaScript files -->
+    <script src="/static/script.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>UB2 GPT</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/">
+                <img id="logo" src="/static/logo.png" alt="logo">
+            </a>
+            <a href="/">
+                <h2>Virtual Assistant</h2>
+            </a>
+        </div>
+        <hr>
+        <main >
+            {% block main %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>
