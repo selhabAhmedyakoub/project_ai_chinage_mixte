@@ -17,18 +17,25 @@ search_by_name_failed
             </div>    
             <div class="user_message">
                 <div class="message">
-                    {% if data_array_length == 5 and name and department and major and group_id and number %}
+                {% if data_array_length == 5 and name and department and major and group_id and number %}
                     name = {{ name }}|
                     Departement = {{ department }}|
                     Major = {{ major }}|
                     Group = {{ group_id }}|
                     Number = {{ number }}
                 {% else %}
-                    {% if data_array_length == 4 and name and department and major %}
-                        name = {{ name }}|
-                        Departement = {{ department }}|
-                        Major = {{ major }}|
-                        Group = {{ group_id }}
+                    {% if data_array_length == 4 %}
+                        {% if route_name == "chinageavant" %}
+                            Department: {{ department }}|
+                            Major: {{ major }}|
+                            Group: {{ group_id }}|
+                            Number: {{ number }}
+                        {% else %}
+                            Name: {{ name }}|
+                            Department: {{ department }}|
+                            Major: {{ major }}|
+                            Group: {{ group_id }}
+                        {% endif %}
                     {% elif data_array_length == 3 and name and department and major %}
                         name = {{ name }}|
                         Departement = {{ department }}|

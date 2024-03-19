@@ -24,11 +24,18 @@ search_by_name_successful
                     Group = {{ group_id }}|
                     Number = {{ number }}
                 {% else %}
-                    {% if data_array_length == 4 and name and department and major %}
-                        name = {{ name }}|
-                        Departement = {{ department }}|
-                        Major = {{ major }}|
-                        Group = {{ group_id }}
+                    {% if data_array_length == 4 %}
+                        {% if route_name == "chinageavant" %}
+                            Department: {{ department }}|
+                            Major: {{ major }}|
+                            Group: {{ group_id }}|
+                            Number: {{ number }}
+                        {% else %}
+                            Name: {{ name }}|
+                            Department: {{ department }}|
+                            Major: {{ major }}|
+                            Group: {{ group_id }}
+                        {% endif %}
                     {% elif data_array_length == 3 and name and department and major %}
                         name = {{ name }}|
                         Departement = {{ department }}|
@@ -49,8 +56,12 @@ search_by_name_successful
                 {% if data_array_length == 5 and name and department and major and group_id and number %}
                     The student information you are providing is accurate and valid.
                 {% else %}
-                    {% if data_array_length == 4 and name and department and major and group_id %}
-                       The student information you are providing is accurate and valid.
+                    {% if data_array_length == 4 %}
+                        {% if route_name == "chinageavant" %}
+                           {{ name }}
+                        {% elif route_name == "validation" %}
+                            The student information you are providing is accurate and valid.
+                        {% endif %}
                     {% elif data_array_length == 3 and name and department and major %}
                        The student information you are providing is accurate and valid.
                     {% elif data_array_length == 2 and name and department %}

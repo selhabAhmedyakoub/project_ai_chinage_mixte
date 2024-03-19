@@ -48,17 +48,41 @@ def byname1():
 
     
         elif len(data_array) == 4:
-            name = data_array[0].strip()
-            department = data_array[1].strip()
-            major = data_array[2].strip()
-            group_id = data_array[3].strip()
+
+            first_data = data_array[0].strip()
             
-            cursor.execute("SELECT department, major, group_id FROM students WHERE name = ?", (name,))
-            result = cursor.fetchone()
-            if result and str(result[0]).strip() == department and str(result[1]).strip() == major and str(result[2]).strip() == group_id:
-                return render_template("byname2.html",data_array_length = 4, name=name, department=department, major=major, group_id=group_id)
+            if first_data in ["computer science", "Sport"]:
+                route_name = "chinageavant"
+                department = data_array[0].strip()
+                major = data_array[1].strip()
+                group_id = data_array[2].strip()
+                number = data_array[3].strip()
+                print(department,major,group_id,number)
+                cursor.execute("SELECT name FROM students WHERE department = ? AND major = ? AND group_id = ? AND number = ?", (department, major, group_id, number))
+                result = cursor.fetchone()
+                name = str(result[0]).strip() 
+                print(result)
+                if result :
+                    return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
+                else:
+                    return render_template("byname2failure.html")
+
             else:
-                return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id)
+                route_name = "validation"
+                name = data_array[0].strip()
+                department = data_array[1].strip()
+                major = data_array[2].strip()
+                group_id = data_array[3].strip()
+                print(name,department,major,group_id)
+                cursor.execute("SELECT department, major, group_id FROM students WHERE name = ?", (name,))
+                result = cursor.fetchone()
+
+                if result and str(result[0]).strip() == department and str(result[1]).strip() == major and str(result[2]).strip() == group_id:
+                    print(name,str(result[0]).strip(),str(result[1]).strip(),str(result[2]).strip())
+                    return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id)
+                else:
+                    return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id)
+
         
         elif len(data_array) == 3:
             name = data_array[0].strip()
@@ -135,17 +159,41 @@ def byname2():
 
     
         elif len(data_array) == 4:
-            name = data_array[0].strip()
-            department = data_array[1].strip()
-            major = data_array[2].strip()
-            group_id = data_array[3].strip()
+
+            first_data = data_array[0].strip()
             
-            cursor.execute("SELECT department, major, group_id FROM students WHERE name = ?", (name,))
-            result = cursor.fetchone()
-            if result and str(result[0]).strip() == department and str(result[1]).strip() == major and str(result[2]).strip() == group_id:
-                return render_template("byname2.html",data_array_length = 4, name=name, department=department, major=major, group_id=group_id)
+            if first_data in ["computer science", "Sport"]:
+                route_name = "chinageavant"
+                department = data_array[0].strip()
+                major = data_array[1].strip()
+                group_id = data_array[2].strip()
+                number = data_array[3].strip()
+                print(department,major,group_id,number)
+                cursor.execute("SELECT name FROM students WHERE department = ? AND major = ? AND group_id = ? AND number = ?", (department, major, group_id, number))
+                result = cursor.fetchone()
+                name = str(result[0]).strip() 
+                print(result)
+                if result :
+                    return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
+                else:
+                    return render_template("byname2failure.html")
+
             else:
-                return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id)
+                route_name = "validation"
+                name = data_array[0].strip()
+                department = data_array[1].strip()
+                major = data_array[2].strip()
+                group_id = data_array[3].strip()
+                print(name,department,major,group_id)
+                cursor.execute("SELECT department, major, group_id FROM students WHERE name = ?", (name,))
+                result = cursor.fetchone()
+
+                if result and str(result[0]).strip() == department and str(result[1]).strip() == major and str(result[2]).strip() == group_id:
+                    print(name,str(result[0]).strip(),str(result[1]).strip(),str(result[2]).strip())
+                    return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id)
+                else:
+                    return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id)
+
         
         elif len(data_array) == 3:
             name = data_array[0].strip()
