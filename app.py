@@ -52,7 +52,7 @@ def byname1():
             first_data = data_array[0].strip()
             
             if first_data in ["computer science", "Sport"]:
-                route_name = "chinageavant"
+                route_name = "chinageavant4"
                 department = data_array[0].strip()
                 major = data_array[1].strip()
                 group_id = data_array[2].strip()
@@ -66,6 +66,47 @@ def byname1():
                     return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
                 else:
                     return render_template("byname2failure.html")
+            elif len(data_array) == 3:
+                route_name = "chinageavant3"
+                department = data_array[0].strip()
+                major = data_array[1].strip()
+                group_id = data_array[2].strip()
+                
+                cursor.execute("SELECT name FROM students WHERE department = ? AND major = ? AND group_id = ?", (department, major, group_id))
+                result = cursor.fetchall()
+                
+                if result:
+                    names = [row[0] for row in result]
+                    return render_template("bycarac2.html",route_name=route_name, data_array_length=4, names=names, department=department, major=major, group_id=group_id)
+                else:
+                    return render_template("bycarac2failure.html")
+            
+            elif len(data_array) == 2:
+                route_name = "chinageavant2"
+                department = data_array[0].strip()
+                major = data_array[1].strip()
+                
+                cursor.execute("SELECT name FROM students WHERE department = ? AND major = ?", (department, major))
+                result = cursor.fetchall()
+                
+                if result:
+                    names = [row[0] for row in result] 
+                    return render_template("bycarac2.html",route_name=route_name, data_array_length=4, names=names, department=department, major=major)
+                else:
+                    return render_template("bycarac2failure.html")
+            
+            elif len(data_array) == 1:
+                route_name = "chinageavant1"
+                department = data_array[0].strip()
+                
+                cursor.execute("SELECT name FROM students WHERE department = ?", (department,))
+                result = cursor.fetchall()
+                
+                if result:
+                    names = [row[0] for row in result]  # Extract names from the result
+                    return render_template("bycarac2.html",route_name=route_name, data_array_length=4, names=names, department=department)
+                else:
+                    return render_template("bycarac2failure.html")
 
             else:
                 route_name = "validation"
@@ -133,6 +174,7 @@ def byname1():
         return render_template("byname1.html")
  
  
+ 
 @app.route("/byname2", methods=["GET", "POST"])
 def byname2(): 
     if request.method == "POST":
@@ -163,7 +205,7 @@ def byname2():
             first_data = data_array[0].strip()
             
             if first_data in ["computer science", "Sport"]:
-                route_name = "chinageavant"
+                route_name = "chinageavant4"
                 department = data_array[0].strip()
                 major = data_array[1].strip()
                 group_id = data_array[2].strip()
@@ -177,6 +219,47 @@ def byname2():
                     return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
                 else:
                     return render_template("byname2failure.html")
+            elif len(data_array) == 3:
+                route_name = "chinageavant3"
+                department = data_array[0].strip()
+                major = data_array[1].strip()
+                group_id = data_array[2].strip()
+                
+                cursor.execute("SELECT name FROM students WHERE department = ? AND major = ? AND group_id = ?", (department, major, group_id))
+                result = cursor.fetchall()
+                
+                if result:
+                    names = [row[0] for row in result]
+                    return render_template("bycarac2.html",route_name=route_name, data_array_length=4, names=names, department=department, major=major, group_id=group_id)
+                else:
+                    return render_template("bycarac2failure.html")
+            
+            elif len(data_array) == 2:
+                route_name = "chinageavant2"
+                department = data_array[0].strip()
+                major = data_array[1].strip()
+                
+                cursor.execute("SELECT name FROM students WHERE department = ? AND major = ?", (department, major))
+                result = cursor.fetchall()
+                
+                if result:
+                    names = [row[0] for row in result] 
+                    return render_template("bycarac2.html",route_name=route_name, data_array_length=4, names=names, department=department, major=major)
+                else:
+                    return render_template("bycarac2failure.html")
+            
+            elif len(data_array) == 1:
+                route_name = "chinageavant1"
+                department = data_array[0].strip()
+                
+                cursor.execute("SELECT name FROM students WHERE department = ?", (department,))
+                result = cursor.fetchall()
+                
+                if result:
+                    names = [row[0] for row in result]  # Extract names from the result
+                    return render_template("bycarac2.html",route_name=route_name, data_array_length=4, names=names, department=department)
+                else:
+                    return render_template("bycarac2failure.html")
 
             else:
                 route_name = "validation"

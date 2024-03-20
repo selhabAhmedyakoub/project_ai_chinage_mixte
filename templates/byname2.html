@@ -18,33 +18,46 @@ search_by_name_successful
             <div class="user_message">
                 <div class="message">
                 {% if data_array_length == 5 and name and department and major and group_id and number %}
-                    name = {{ name }}|
-                    Departement = {{ department }}|
-                    Major = {{ major }}|
-                    Group = {{ group_id }}|
-                    Number = {{ number }}
+                    Name: {{ name }}|
+                    Department: {{ department }} |
+                    Major: {{ major }} |
+                    Group: {{ group_id }}|
+                    Number: {{ number }}
                 {% else %}
                     {% if data_array_length == 4 %}
-                        {% if route_name == "chinageavant" %}
-                            Department: {{ department }}|
-                            Major: {{ major }}|
+                        {% if route_name == "chinageavant4" %}
+                            Department: {{ department }} |
+                            Major: {{ major }} |
                             Group: {{ group_id }}|
                             Number: {{ number }}
-                        {% else %}
+                        {% elif route_name == "chinageavant3" %}
+                            Department: {{ department }} |
+                            Major: {{ major }} |
+                            Group: {{ group_id }}
+                        {% elif route_name == "chinageavant2" %}
+                            Department: {{ department }} |
+                            Major: {{ major }}
+                        {% elif route_name == "chinageavant1" %}
+                            Department: {{ department }}
+                        {% elif route_name == "validation" %}
                             Name: {{ name }}|
-                            Department: {{ department }}|
-                            Major: {{ major }}|
+                            Department: {{ department }} |
+                            Major: {{ major }} |
                             Group: {{ group_id }}
                         {% endif %}
                     {% elif data_array_length == 3 and name and department and major %}
-                        name = {{ name }}|
-                        Departement = {{ department }}|
-                        Major = {{ major }}
+                        Name: {{ name }}|
+                        Department: {{ department }} |
+                        Major: {{ major }}     
                     {% elif data_array_length == 2 and name and department %}
-                        name = {{ name }}| 
-                        Departement = {{ department }}
+                        Name: {{ name }}|
+                        Department: {{ department }}
                     {% elif data_array_length == 1 and name and department and major and group_id and number and image %}
-                        name = {{ name }}|    
+                        Name: {{ name }}|
+                        Department: {{ department }} |
+                        Major: {{ major }} |
+                        Group: {{ group_id }}|
+                        Number: {{ number }} 
                     {% endif %}
                 {% endif %}
                 </div>
@@ -57,25 +70,46 @@ search_by_name_successful
                     The student information you are providing is accurate and valid.
                 {% else %}
                     {% if data_array_length == 4 %}
-                        {% if route_name == "chinageavant" %}
-                           {{ name }}
+                        {% if route_name == "chinageavant4" %}
+                            {{ name }}
+                        {% elif route_name == "chinageavant3" %}
+                            The students you are seeking are:
+                            <ul>
+                                {% for name in names %}
+                                    <li>{{ name }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% elif route_name == "chinageavant2" %}
+                            The students you are seeking are:
+                            <ul>
+                                {% for name in names %}
+                                    <li>{{ name }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% elif route_name == "chinageavant1" %}
+                            The students you are seeking are:
+                            <ul>
+                                {% for name in names %}
+                                    <li>{{ name }}</li>
+                                {% endfor %}
+                            </ul>
                         {% elif route_name == "validation" %}
-                            The student information you are providing is accurate and valid.
-                        {% endif %}
+                           The student information you are providing is accurate and valid.
+                        {% endif %}    
                     {% elif data_array_length == 3 and name and department and major %}
-                       The student information you are providing is accurate and valid.
+                    The student information you are providing is accurate and valid.
                     {% elif data_array_length == 2 and name and department %}
-                       The student information you are providing is accurate and valid.
-                    {% elif data_array_length == 1 and name and department and major and group_id and number and image%}
+                        The student information you are providing is accurate and valid.
+                    {% elif data_array_length == 1 and name and department and major and group_id and number and image %}
                         Those are his/her characteristics:
                         <ul>
-                            <li>Departement = {{ department }}</li>
-                            <li>Major = {{ major }}</li>
-                            <li>Group = {{ group_id }}</li>
-                            <li>Number = {{ number }}</li>
+                            <li>Department: {{ department }}</li>
+                            <li>Major: {{ major }}</li>
+                            <li>Group: {{ group_id }}</li>
+                            <li>Number: {{ number }}</li>
                         </ul>
                         <img src="{{ image }}" alt="Student Image">   
-                    {% endif %}
+                    {% endif %}     
                 {% endif %}
                 </div>
             </div>  

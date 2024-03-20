@@ -18,33 +18,46 @@ search_by_name_failed
             <div class="user_message">
                 <div class="message">
                 {% if data_array_length == 5 and name and department and major and group_id and number %}
-                    name = {{ name }}|
-                    Departement = {{ department }}|
-                    Major = {{ major }}|
-                    Group = {{ group_id }}|
-                    Number = {{ number }}
+                    Name: {{ name }}|
+                    Department: {{ department }} |
+                    Major: {{ major }} |
+                    Group: {{ group_id }}|
+                    Number: {{ number }}
                 {% else %}
                     {% if data_array_length == 4 %}
-                        {% if route_name == "chinageavant" %}
-                            Department: {{ department }}|
-                            Major: {{ major }}|
+                        {% if route_name == "chinageavant4" %}
+                            Department: {{ department }} |
+                            Major: {{ major }} |
                             Group: {{ group_id }}|
                             Number: {{ number }}
-                        {% else %}
+                        {% elif route_name == "chinageavant3" %}
+                            Department: {{ department }} |
+                            Major: {{ major }} |
+                            Group: {{ group_id }}
+                        {% elif route_name == "chinageavant2" %}
+                            Department: {{ department }} |
+                            Major: {{ major }}
+                        {% elif route_name == "chinageavant1" %}
+                            Department: {{ department }}
+                        {% elif route_name == "validation" %}
                             Name: {{ name }}|
-                            Department: {{ department }}|
-                            Major: {{ major }}|
+                            Department: {{ department }} |
+                            Major: {{ major }} |
                             Group: {{ group_id }}
                         {% endif %}
                     {% elif data_array_length == 3 and name and department and major %}
-                        name = {{ name }}|
-                        Departement = {{ department }}|
-                        Major = {{ major }}
+                        Name: {{ name }}|
+                        Department: {{ department }} |
+                        Major: {{ major }}     
                     {% elif data_array_length == 2 and name and department %}
-                        name = {{ name }}| 
-                        Departement = {{ department }}
+                        Name: {{ name }}|
+                        Department: {{ department }}
                     {% elif data_array_length == 1 and name and department and major and group_id and number and image %}
-                        name = {{ name }}|    
+                        Name: {{ name }}|
+                        Department: {{ department }} |
+                        Major: {{ major }} |
+                        Group: {{ group_id }}|
+                        Number: {{ number }} 
                     {% endif %}
                 {% endif %}
                 </div>
