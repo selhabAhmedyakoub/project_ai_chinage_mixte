@@ -30,34 +30,36 @@ search_by_name_failed
                             Major: {{ major }} |
                             Group: {{ group_id }}|
                             Number: {{ number }}
-                        {% elif route_name == "chinageavant3" %}
-                            Department: {{ department }} |
-                            Major: {{ major }} |
-                            Group: {{ group_id }}
-                        {% elif route_name == "chinageavant2" %}
-                            Department: {{ department }} |
-                            Major: {{ major }}
-                        {% elif route_name == "chinageavant1" %}
-                            Department: {{ department }}
-                        {% elif route_name == "validation" %}
+                        {% elif route_name == "validation4" %}
                             Name: {{ name }}|
                             Department: {{ department }} |
                             Major: {{ major }} |
                             Group: {{ group_id }}
                         {% endif %}
-                    {% elif data_array_length == 3 and name and department and major %}
-                        Name: {{ name }}|
-                        Department: {{ department }} |
-                        Major: {{ major }}     
-                    {% elif data_array_length == 2 and name and department %}
-                        Name: {{ name }}|
-                        Department: {{ department }}
-                    {% elif data_array_length == 1 and name and department and major and group_id and number and image %}
-                        Name: {{ name }}|
-                        Department: {{ department }} |
-                        Major: {{ major }} |
-                        Group: {{ group_id }}|
-                        Number: {{ number }} 
+                    {% elif data_array_length == 3 %}
+                        {% if route_name == "chinageavant3" %} 
+                            Department: {{ department }} |
+                            Major: {{ major }} |
+                            Group: {{ group_id }}    
+                        {% elif route_name == "validation3" %}
+                            Name: {{ name }}|
+                            Department: {{ department }} |
+                            Major: {{ major }} 
+                        {% endif %}    
+                    {% elif data_array_length == 2 %}
+                        {% if route_name == "chinageavant2" %} 
+                            Department: {{ department }} |
+                            Major: {{ major }}   
+                        {% elif route_name == "validation2" %}
+                            Name: {{ name }}|
+                            Department: {{ department }} 
+                        {% endif %}    
+                    {% elif data_array_length == 1  %}
+                        {% if route_name == "chinageavant1" %} 
+                            Department: {{ department }} 
+                        {% elif route_name == "chinagearriere1" %}
+                            Name: {{ name }}|
+                        {% endif %}     
                     {% endif %}
                 {% endif %}
                 </div>
