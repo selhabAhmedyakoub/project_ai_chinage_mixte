@@ -44,7 +44,7 @@ def byname1():
             if result and str(result[0]).strip() == department and str(result[1]).strip() == major and str(result[2]).strip() == group_id and str(result[3]).strip() == number:
                 return render_template("byname2.html", data_array_length=5, name=name, department=department, major=major, group_id=group_id, number=number)
                 
-            return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id, number=number)
+            return render_template("byname2failure.html", data_array_length=5, name=name, department=department, major=major, group_id=group_id, number=number)
 
     
         elif len(data_array) == 4:
@@ -65,7 +65,7 @@ def byname1():
                 if result :
                     return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
             else:
                 route_name = "validation4"
                 name = data_array[0].strip()
@@ -80,7 +80,7 @@ def byname1():
                     print(name,str(result[0]).strip(),str(result[1]).strip(),str(result[2]).strip())
                     return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id)
                 else:
-                    return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id)    
+                    return render_template("byname2failure.html", route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id)    
                 
         elif len(data_array) == 3:
             first_data = data_array[0].strip()
@@ -98,7 +98,7 @@ def byname1():
                     names = [row[0] for row in result]
                     return render_template("byname2.html",route_name=route_name, data_array_length=3, names=names, department=department, major=major, group_id=group_id)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=3, names=names, department=department, major=major, group_id=group_id)
                 
                
             else:
@@ -114,7 +114,7 @@ def byname1():
                 if result and result[0] == department and result[1] == major  :
                     return render_template("byname2.html",route_name=route_name, data_array_length = 3, name=name, department=department, major=major)
                 else:
-                    return render_template("byname2failure.html", name=name, department=department, major=major)   
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length = 3, name=name, department=department, major=major)   
                 
         elif len(data_array) == 2:
             first_data = data_array[0].strip()
@@ -131,7 +131,7 @@ def byname1():
                     names = [row[0] for row in result] 
                     return render_template("byname2.html",route_name=route_name, data_array_length=2, names=names, department=department, major=major)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=2, names=names, department=department, major=major)
             else :
                 route_name = "validation2"
                 name = data_array[0].strip()
@@ -143,7 +143,7 @@ def byname1():
                 if result and result[0] == department  :
                     return render_template("byname2.html",route_name=route_name, data_array_length = 2, name=name, department=department)
                 else:
-                    return render_template("byname2failure.html", name=name, department=department)          
+                    return render_template("byname2failure.html", route_name=route_name, data_array_length = 2, name=name, department=department)          
                 
             
 
@@ -161,7 +161,7 @@ def byname1():
                     names = [row[0] for row in result]  # Extract names from the result
                     return render_template("byname2.html",route_name=route_name, data_array_length=1, names=names, department=department)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=1, names=names, department=department)
             else:    
                 route_name = "chinagearriere1"
                 name = data_array[0].strip()
@@ -179,7 +179,7 @@ def byname1():
                     return render_template("byname2.html",route_name=route_name, data_array_length= 1, name=name, department=department, major=major, group_id=group_id, number=number, image=image)
                     
                 else:
-                    return render_template("byname2failure.html", name=name)
+                    return render_template("byname2failure.html", route_name=route_name, data_array_length= 1, name=name, department=department, major=major, group_id=group_id, number=number, image=image)
     else:
         return render_template("byname1.html")
  
@@ -207,7 +207,7 @@ def byname2():
             if result and str(result[0]).strip() == department and str(result[1]).strip() == major and str(result[2]).strip() == group_id and str(result[3]).strip() == number:
                 return render_template("byname2.html", data_array_length=5, name=name, department=department, major=major, group_id=group_id, number=number)
                 
-            return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id, number=number)
+            return render_template("byname2failure.html", data_array_length=5, name=name, department=department, major=major, group_id=group_id, number=number)
 
     
         elif len(data_array) == 4:
@@ -228,7 +228,7 @@ def byname2():
                 if result :
                     return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id, number=number)
             else:
                 route_name = "validation4"
                 name = data_array[0].strip()
@@ -243,7 +243,7 @@ def byname2():
                     print(name,str(result[0]).strip(),str(result[1]).strip(),str(result[2]).strip())
                     return render_template("byname2.html",route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id)
                 else:
-                    return render_template("byname2failure.html", name=name, department=department, major=major, group_id=group_id)    
+                    return render_template("byname2failure.html", route_name=route_name, data_array_length=4, name=name, department=department, major=major, group_id=group_id)    
                 
         elif len(data_array) == 3:
             first_data = data_array[0].strip()
@@ -261,7 +261,7 @@ def byname2():
                     names = [row[0] for row in result]
                     return render_template("byname2.html",route_name=route_name, data_array_length=3, names=names, department=department, major=major, group_id=group_id)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=3, names=names, department=department, major=major, group_id=group_id)
                 
                
             else:
@@ -277,7 +277,7 @@ def byname2():
                 if result and result[0] == department and result[1] == major  :
                     return render_template("byname2.html",route_name=route_name, data_array_length = 3, name=name, department=department, major=major)
                 else:
-                    return render_template("byname2failure.html", name=name, department=department, major=major)   
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length = 3, name=name, department=department, major=major)   
                 
         elif len(data_array) == 2:
             first_data = data_array[0].strip()
@@ -294,7 +294,7 @@ def byname2():
                     names = [row[0] for row in result] 
                     return render_template("byname2.html",route_name=route_name, data_array_length=2, names=names, department=department, major=major)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=2, names=names, department=department, major=major)
             else :
                 route_name = "validation2"
                 name = data_array[0].strip()
@@ -306,7 +306,7 @@ def byname2():
                 if result and result[0] == department  :
                     return render_template("byname2.html",route_name=route_name, data_array_length = 2, name=name, department=department)
                 else:
-                    return render_template("byname2failure.html", name=name, department=department)          
+                    return render_template("byname2failure.html", route_name=route_name, data_array_length = 2, name=name, department=department)          
                 
             
 
@@ -324,7 +324,7 @@ def byname2():
                     names = [row[0] for row in result]  # Extract names from the result
                     return render_template("byname2.html",route_name=route_name, data_array_length=1, names=names, department=department)
                 else:
-                    return render_template("byname2failure.html")
+                    return render_template("byname2failure.html",route_name=route_name, data_array_length=1, names=names, department=department)
             else:    
                 route_name = "chinagearriere1"
                 name = data_array[0].strip()
@@ -342,7 +342,7 @@ def byname2():
                     return render_template("byname2.html",route_name=route_name, data_array_length= 1, name=name, department=department, major=major, group_id=group_id, number=number, image=image)
                     
                 else:
-                    return render_template("byname2failure.html", name=name)
+                    return render_template("byname2failure.html", route_name=route_name, data_array_length= 1, name=name, department=department, major=major, group_id=group_id, number=number, image=image)
     else:
         return render_template("byname1.html")
  
