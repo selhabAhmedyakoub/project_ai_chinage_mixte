@@ -9,4 +9,4 @@ Pour ce TP, j'ai l'idée de créer un assistant virtuel pour l'université qui p
 <br>
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/kkHRpeCHNT8/0.jpg)](https://www.youtube.com/watch?v=kkHRpeCHNT8)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/TnP_CSb0pRw/0.jpg)](https://www.youtube.com/watch?v=TnP_CSb0pRw)
